@@ -3,6 +3,7 @@ import cv2
 import random
 import streamlit as st
 from emotion_detector import detect_emotion
+from face_detection import get_bounding_box
 
 st.title("Facial Emotion Detector")
 st.subheader("AAI 521 Final Project")
@@ -21,6 +22,8 @@ if picture:
         f.write(picture.getbuffer())
 
     img = cv2.imread(temp_file_path)
-    emotion, confidence = detect_emotion(img)
+    bbox = get_bounding_box(img)
+    emotion, confidence = detect_emotion(img, bbox)
+
     markdown = f"**Predicted Emotion:** {emotion} ({confidence})"
     emotion_label_placeholder.markdown(markdown)
