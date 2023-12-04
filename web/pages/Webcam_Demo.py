@@ -11,8 +11,12 @@ picture = st.camera_input("Take a photo")
 emotion_label_placeholder = st.empty()
 
 if picture:
+    temp_dir =  "web/temp"
+    if not os.path.exists(temp_dir):
+        os.makedirs(temp_dir)
+    
     image_file_name = f"webcapture{random.randint(100, 500)}.jpg"
-    temp_file_path = os.path.join("temp", image_file_name)
+    temp_file_path = os.path.join(temp_dir, image_file_name)
     with open(temp_file_path, "wb") as f: 
         f.write(picture.getbuffer())
 
