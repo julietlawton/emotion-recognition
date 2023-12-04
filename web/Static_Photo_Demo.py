@@ -19,7 +19,12 @@ image_file = st.file_uploader(
 )
 
 if image_file is not None:
-    temp_file_path = os.path.join("temp", image_file.name)
+    temp_dir =  "web/temp"
+    if not os.path.exists(temp_dir):
+        os.makedirs(temp_dir)
+    
+    temp_file_path = os.path.join(temp_dir, image_file.name)
+
     with open(temp_file_path, "wb") as f: 
         f.write(image_file.getbuffer())         
     img = cv2.imread(temp_file_path)
