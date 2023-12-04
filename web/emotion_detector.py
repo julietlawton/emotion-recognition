@@ -53,9 +53,9 @@ def detect_emotion(image, bbox):
     return predicted_emotion, confidence_str
 
 # Debug
-test_image = cv2.imread('temp/sad_man.jpeg')
-test_bbox = (249, 113, 136, 136)
-img = preprocess_image(test_image, test_bbox)
+# test_image = cv2.imread('temp/sad_man.jpeg')
+# test_bbox = (249, 113, 136, 136)
+# img = preprocess_image(test_image, test_bbox)
 # emotion_label, confidence_level = detect_emotion(test_image)
 # print(emotion_label, confidence_level)
 # cv2.imshow("Image", img)
