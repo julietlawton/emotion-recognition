@@ -3,7 +3,7 @@ import tensorflow as tf
 import cv2
 from PIL import Image
 
-face_cascade = cv2.CascadeClassifier('models/haarcascade_frontalface_alt.xml')
+face_cascade = cv2.CascadeClassifier('web/models/haarcascade_frontalface_alt.xml')
 
 def get_bounding_box(image):
    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -12,7 +12,6 @@ def get_bounding_box(image):
 
 def draw_bounding_box(image, bbox, emotion_label=None, confidence_level=None):
    x, y, w, h = bbox
-   print(x, y, w, h)
    cv2.rectangle(image, (x,y), (x+w,y+h), (0, 0, 255), 2)
 
    if emotion_label is not None:
