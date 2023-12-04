@@ -1,5 +1,5 @@
 .DS_Store
-web/temp
+web/temp/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
