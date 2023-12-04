@@ -3,7 +3,7 @@ import tensorflow as tf
 import cv2
 import imutils
 
-fer_model = tf.keras.models.load_model("models/test_model.keras")
+fer_model = tf.keras.models.load_model("web/models/test_model.keras")
 
 emotion_mapping = {
     0: 'Angry',
