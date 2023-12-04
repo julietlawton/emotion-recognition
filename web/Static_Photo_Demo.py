@@ -34,7 +34,7 @@ if image_file is not None:
     else:
         st.error("Image is too small. Please upload an image bigger than 192x192 pixels.")
 else:
-    img = cv2.imread("smiling_man_placeholder.jpg")
-    bbox = get_bounding_box(img)
-    img = draw_bounding_box(img, bbox, emotion_label="Happy", confidence_level=0.88)
+    img = cv2.imread("web/smiling_man_placeholder.jpg")
+    # bbox = get_bounding_box(img)
+    # img = draw_bounding_box(img, bbox, emotion_label="Happy", confidence_level=0.88)
     st.image(img, width=700, channels="BGR")
