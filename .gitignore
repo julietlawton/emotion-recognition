@@ -1,5 +1,6 @@
 .DS_Store
 web/temp/*
+datasets/random-images-for-face-emotion-recognition
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
