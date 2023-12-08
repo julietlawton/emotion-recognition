@@ -14,6 +14,15 @@ def draw_bounding_box(image, bbox, emotion_label=None, confidence_level=None):
    x, y, w, h = bbox
    cv2.rectangle(image, (x,y), (x+w,y+h), (0, 0, 255), 2)
 
+#    cv2.putText(
+#         image, 
+#         "test", 
+#         (x+int(w/2), y+int(h/2)), 
+#         fontFace=cv2.FONT_HERSHEY_SIMPLEX, 
+#         fontScale=0.7, 
+#         color=(0, 0, 255), 
+#         thickness=2)
+
    if emotion_label is not None:
       label_pos = (x, y+-5)
       label = emotion_label if confidence_level is None else f"{emotion_label} {confidence_level}"
@@ -29,8 +38,10 @@ def draw_bounding_box(image, bbox, emotion_label=None, confidence_level=None):
    return image
 
 # Debug
-# img = cv2.imread("smiling_man_placeholder.jpg")
-# img, bbox = get_bounding_box(img, "Happy", 0.88)
-# cv2.imshow(img)
+# img = cv2.imread("web/temp/webcapture125.jpg")
+# bbox = get_bounding_box(img)
+# print(bbox)
+# img = draw_bounding_box(img, bbox)
+# cv2.imshow("man", img)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()

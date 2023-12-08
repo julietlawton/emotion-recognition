@@ -2,8 +2,9 @@ import numpy as np
 import tensorflow as tf
 import cv2
 import imutils
+import face_detection
 
-fer_model = tf.keras.models.load_model("web/models/test_model.keras")
+fer_model = tf.keras.models.load_model("web/models/modelv3.keras")
 
 emotion_mapping = {
     0: 'Angry',
@@ -19,23 +20,11 @@ def preprocess_image(image, bbox):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     x, y, w, h = bbox
-    face_centerpoint = (x+w/2, y+h/2)
-    #image = imutils.resize(image_gray, width=192)
-    #image = cv2.resize(image_gray, (250, 192)).astype('float32')/255.0
-    #print(bbox, face_centerpoint)
 
-    height, width = image.shape[:2]
-    remove_vertical = height - 192
-    remove_horizontal = width - 192
-    top_trim = remove_vertical // 2
-    bottom_trim = remove_vertical - top_trim
-    left_trim = remove_horizontal // 2
-    right_trim = remove_horizontal - left_trim
+    cropped_image = image[max(y, 0):min(y + h, image.shape[0]), max(x, 0):min(x + w, image.shape[1])]
+    resized_image = cv2.resize(cropped_image, (96, 96))
 
-    image = image[top_trim:height - bottom_trim, left_trim:width - right_trim]
-
-    image = image.reshape(192, 192, 1).astype('float32')/255.0
-    image = np.repeat(image, 3, axis=2)
+    image = resized_image.reshape(96, 96, 1).astype('float32')/255.0
 
     image_tensor = tf.convert_to_tensor(image, dtype=tf.float32)
     image_tensor = np.expand_dims(image_tensor, axis=0)
@@ -53,10 +42,11 @@ def detect_emotion(image, bbox):
     return predicted_emotion, confidence_str
 
 # Debug
-# test_image = cv2.imread('temp/sad_man.jpeg')
-# test_bbox = (249, 113, 136, 136)
+# test_image = cv2.imread('web/temp/webcapture125.jpg')
+# test_image = cv2.imread('web/temp/sad_man.jpeg')
+# test_bbox = face_detection.get_bounding_box(test_image)
 # img = preprocess_image(test_image, test_bbox)
-# emotion_label, confidence_level = detect_emotion(test_image)
+# emotion_label, confidence_level = detect_emotion(test_image, test_bbox)
 # print(emotion_label, confidence_level)
 # cv2.imshow("Image", img)
 # cv2.waitKey(0)

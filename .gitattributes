@@ -6,3 +6,4 @@ web/models/test_model.keras filter=lfs diff=lfs merge=lfs -text
 datasets/fer_preprocessed_2xres.pkl.zip filter=lfs diff=lfs merge=lfs -text
 datasets/fer2013 filter=lfs diff=lfs merge=lfs -text
 datasets/ filter=lfs diff=lfs merge=lfs -text
+web/models/modelv3.keras filter=lfs diff=lfs merge=lfs -text
