@@ -12,15 +12,18 @@ The primary dataset used for this project was **FER2013**. FER2013 is one of the
 
 Due to imbalances and other image ambiguities, we apply a super-resolution technique using the 'LapSRN_x2' model, which upscales the images by a factor of 2, enhancing their resolution. This process involves converting images to 8-bit format before upscaling and then normalizing them post-enhancement. To further augment our dataset and improve model robustness, we apply several augmentation techniques, including random flipping, brightness adjustment, and contrast scaling.
 
-![Super Resolution](example.png)
-![Image Augmentation](example.png)
+<div style="text-align:center">
+    <img src="images/super_resolution.png" alt="Super Resolution" width="600" height="300">
+</div>
 
 
 ### Performance
 
 We encountered some significant challenges when training the model, particularly with respect to overfitting and performance on the validation and test data. An example of this is shown in the learning curves below, where you can see that the test curves are not improving with the training curves.
 
-![Learning Curves](example.png)
+<div style="text-align:center">
+    <img src="images/learning_curves.png" alt="Learning Curves" width="500" height="400">
+</div>
 
 <br>
 
