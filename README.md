@@ -21,7 +21,6 @@ The primary dataset used for this project was **FER2013**. FER2013 is one of the
 First, clone the repository and change the directory
 ```python
 git clone https://github.com/julietlawton/emotion-recognition.git
-cd web
 ```
 <br>
 
