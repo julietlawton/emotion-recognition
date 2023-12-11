@@ -17,16 +17,6 @@ Due to imbalances and other image ambiguities, we apply a super-resolution techn
 </div>
 
 
-### Performance
-
-We encountered some significant challenges when training the model, particularly with respect to overfitting and performance on the validation and test data. An example of this is shown in the learning curves below, where you can see that the test curves are not improving with the training curves.
-
-<div style="text-align:center">
-    <img src="images/learning_curves.png" alt="Learning Curves" width="500" height="400">
-</div>
-
-<br>
-
 ### Dependencies
 - Python 3.11
 - To install the required packages, run pip install -r requirements.txt.
@@ -43,8 +33,5 @@ cd web
 
 Then, run the Streamlit application:
 ```python
-streamlit run Static_Photo_Demo.py
+streamlit run web/Static_Photo_Demo.py
 ```
-
-
-### References
