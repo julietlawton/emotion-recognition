@@ -10,12 +10,6 @@ The primary dataset used for this project was **FER2013**. FER2013 is one of the
 
 3,944 additional grayscale facial expression images were extracted from a second auxiliary dataset (citation here) to add samples to the underrepresented classes (angry, disgust, fear, sad, surprise, and neutral) to improve model performance.
 
-Due to imbalances and other image ambiguities, we apply a super-resolution technique using the 'LapSRN_x2' model, which upscales the images by a factor of 2, enhancing their resolution. This process involves converting images to 8-bit format before upscaling and then normalizing them post-enhancement. To further augment our dataset and improve model robustness, we apply several augmentation techniques, including random flipping, brightness adjustment, and contrast scaling.
-
-<div style="text-align:center">
-    <img src="images/super_resolution.png" alt="Super Resolution" width="600" height="300">
-</div>
-
 
 ### Dependencies
 - Python 3.11
